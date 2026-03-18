@@ -21,8 +21,8 @@ def purchase():
 
         if from_moneda != "EUR":
             saldo = saldo_cripto(from_moneda)
-        if saldo < from_cantidad:
-            return render_template("purchase.html", error="Saldo insuficiente")
+            if saldo < from_cantidad:
+                return render_template("purchase.html", error="Saldo insuficiente")
             
         if boton == "calcular":
             to_cantidad = convertir(from_cantidad, from_moneda, to_moneda)
