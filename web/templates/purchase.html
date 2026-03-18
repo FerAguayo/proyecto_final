@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+    <h2>COMPRA DE CRIPTOS</h2>
+
+    <form method="POST" action="/purchase">
+        <label>De:</label>
+        <select name="from_moneda">
+            <option value="EUR" {% if from_moneda == "EUR" %}selected{% endif %}>EUR</option>
+            <option value="BTC" {% if from_moneda == "BTC" %}selected{% endif %}>BTC</option>
+            <option value="ETH" {% if from_moneda == "ETH" %}selected{% endif %}>ETH</option>
+            <option value="USDT" {% if from_moneda == "USDT" %}selected{% endif %}>USDT</option>
+            <option value="BNB" {% if from_moneda == "BNB" %}selected{% endif %}>BNB</option>
+            <option value="XRP" {% if from_moneda == "XRP" %}selected{% endif %}>XRP</option>
+            <option value="USDC" {% if from_moneda == "USDC" %}selected{% endif %}>USDC</option>
+            <option value="SOL" {% if from_moneda == "SOL" %}selected{% endif %}>SOL</option>
+            <option value="TRON" {% if from_moneda == "TRON" %}selected{% endif %}>TRON</option>
+            <option value="DOGE" {% if from_moneda == "DOGE" %}selected{% endif %}>DOGE</option>
+        </select>
+
+        <label>Cantidad:</label>
+        <input type="number" name="from_cantidad" step="any" required
+            value="{{ from_cantidad if from_cantidad }}">
+
+        <label>A:</label>
+        <select name="to_moneda">
+            <option value="EUR" {% if to_moneda == "EUR" %}selected{% endif %}>EUR</option>
+            <option value="BTC" {% if to_moneda == "BTC" %}selected{% endif %}>BTC</option>
+            <option value="ETH" {% if to_moneda == "ETH" %}selected{% endif %}>ETH</option>
+            <option value="USDT" {% if to_moneda == "USDT" %}selected{% endif %}>USDT</option>
+            <option value="BNB" {% if to_moneda == "BNB" %}selected{% endif %}>BNB</option>
+            <option value="XRP" {% if to_moneda == "XRP" %}selected{% endif %}>XRP</option>
+            <option value="USDC" {% if to_moneda == "USDC" %}selected{% endif %}>USDC</option>
+            <option value="SOL" {% if to_moneda == "SOL" %}selected{% endif %}>SOL</option>
+            <option value="TRON" {% if to_moneda == "TRON" %}selected{% endif %}>TRON</option>
+            <option value="DOGE" {% if to_moneda == "DOGE" %}selected{% endif %}>DOGE</option>
+        </select>
+
+        <label>Cantidad:</label>
+        <input type="text" name="to_cantidad" readonly
+            value="{{ to_cantidad if to_cantidad }}">
+
+        <label>Precio Unitario:</label>
+        <input type="text" name="precio_unitario" readonly
+            value="{{ precio_unitario if precio_unitario }}">
+
+        <button type="submit" name="boton" value="calcular">Calcular</button>
+        <button type="submit" name="boton" value="aceptar">Aceptar</button>
+    </form>
+
+
+
+{% endblock %}
