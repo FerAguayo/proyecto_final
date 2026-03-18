@@ -1,5 +1,37 @@
 {% extends "base.html" %}
 
 {% block contenido %}
+    <h2>MOVIMIENTOS</h2>
+
+    {% if movimientos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>From</th>
+                    <th>Q</th>
+                    <th>To</th>
+                    <th>Q</th>
+                    <th>P.U.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in movimientos %}
+                <tr>
+                    <td>{{ m.date }}</td>
+                    <td>{{ m.time }}</td>
+                    <td>{{ m.moneda_from }}</td>
+                    <td>{{ m.cantidad_from }}</td>
+                    <td>{{ m.moneda_to }}</td>
+                    <td>{{ m.cantidad_to }}</td>
+                    <td>{{ m.cantidad_from / m.cantidad_to }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>SIN MOVIMIENTOS</p>
+    {% endif %}
 
 {% endblock %}
