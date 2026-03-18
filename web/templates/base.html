@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myCRYPTO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pico.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>myCRYPTO</h1>
+        <nav>
+            <a href="/">Inicio</a> /
+            <a href="/purchase">Compra</a> /
+            <a href="/status">Estado</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; Fernando Aguayo | Keepcoding bootcamp cero 2026 - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
