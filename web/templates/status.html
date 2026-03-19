@@ -4,18 +4,38 @@
 {% block contenido %}
     <h2>ESTADO DE LA INVERSIÓN</h2>
 
-    <p><strong>Invertido:</strong> {{ "%.2f"|format(invertido) }} €</p>
-    <p><strong>Recuperado:</strong> {{ "%.2f"|format(recuperado) }} €</p>
-    <p><strong>Valor de compra:</strong> {{ "%.2f"|format(valor_compra) }} €</p>
-    <p><strong>Valor actual:</strong> {{ "%.2f"|format(valor_actual) }} €</p>
-
     {% set ganancia = valor_actual - valor_compra %}
-    {% if ganancia >= 0 %}
-        <p style="color: green;"><strong>Ganancia:</strong> {{ "%.2f"|format(ganancia) }} €</p>
-    {% else %}
-        <p style="color: red;"><strong>Pérdida:</strong> {{ "%.2f"|format(ganancia) }} €</p>
-    {% endif %}
 
-    <a href="/">Volver</a>
+    <article class="status-resumen">
+        <div class="status-linea">
+            <span class="status-label">Invertido:</span>
+            <span class="status-valor">{{ "%.2f"|format(invertido) }} €</span>
+        </div>
+        <div class="status-linea">
+            <span class="status-label">Recuperado:</span>
+            <span class="status-valor">{{ "%.2f"|format(recuperado) }} €</span>
+        </div>
+        <hr>
+        <div class="status-linea">
+            <span class="status-label"><strong>Valor de compra:</strong></span>
+            <span class="status-valor destacado-text">{{ "%.2f"|format(valor_compra) }} €</span>
+        </div>
+        <div class="status-linea">
+            <span class="status-label"><strong>Valor actual:</strong></span>
+            <span class="status-valor destacado-text">{{ "%.2f"|format(valor_actual) }} €</span>
+        </div>
+        <hr>
+        <div class="status-linea">
+            {% if ganancia >= 0 %}
+                <span class="status-label"><strong>Ganancia:</strong></span>
+                <span class="status-valor ganancia-text">+{{ "%.2f"|format(ganancia) }} €</span>
+            {% else %}
+                <span class="status-label"><strong>Pérdida:</strong></span>
+                <span class="status-valor perdida-text">{{ "%.2f"|format(ganancia) }} €</span>
+            {% endif %}
+        </div>
+    </article>
+
+    <a href="/" role="button" class="secondary btn-volver">Volver</a>
 
 {% endblock %}

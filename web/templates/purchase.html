@@ -5,13 +5,13 @@
     <h2>COMPRA DE CRIPTOS</h2>
 
     {% if error %}
-        <p style="color: red;">{{ error }}</p>
+        <p class="error-msg">{{ error }}</p>
     {% endif %}
 
     <form method="POST" action="/purchase">
         <div class="grid">
             <div>
-                <label>De:
+                <label>From:
                     <select name="from_moneda">
                         <option value="EUR" {% if from_moneda == "EUR" %}selected{% endif %}>EUR</option>
                         <option value="BTC" {% if from_moneda == "BTC" %}selected{% endif %}>BTC</option>
@@ -25,13 +25,14 @@
                         <option value="DOGE" {% if from_moneda == "DOGE" %}selected{% endif %}>DOGE</option>
                     </select>
                 </label>
-                <label>Cantidad:
+                <label>Q:
                     <input type="number" name="from_cantidad" step="any" required
                         value="{{ from_cantidad if from_cantidad }}">
                 </label>
+                <button type="submit" name="boton" value="calcular"><span class="material-icons">calculate</span> Calcular</button>
             </div>
             <div>
-                <label>A:
+                <label>To:
                     <select name="to_moneda">
                         <option value="EUR" {% if to_moneda == "EUR" %}selected{% endif %}>EUR</option>
                         <option value="BTC" {% if to_moneda == "BTC" %}selected{% endif %}>BTC</option>
@@ -45,20 +46,17 @@
                         <option value="DOGE" {% if to_moneda == "DOGE" %}selected{% endif %}>DOGE</option>
                     </select>
                 </label>
-                <label>Cantidad:
+                <label>Q:
                     <input type="text" name="to_cantidad" readonly
                         value="{{ to_cantidad if to_cantidad }}">
                 </label>
-                <label>Precio Unitario:
+                <label>P.U.:
                     <input type="text" name="precio_unitario" readonly
                         value="{{ precio_unitario if precio_unitario }}">
                 </label>
             </div>
         </div>
-        <div class="grid">
-            <button type="submit" name="boton" value="calcular">Calcular</button>
-            <button type="submit" name="boton" value="aceptar" class="secondary">Aceptar</button>
-        </div>
+        <button type="submit" name="boton" value="aceptar"><span class="material-icons">done_outline</span> Aceptar</button>
     </form>
 
 {% endblock %}

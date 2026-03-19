@@ -1,4 +1,171 @@
+/* css para base */
+:root {
+    --primary: rgb(57, 56, 151);
+    --primary-hover: rgb(48, 47, 126);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #1a1f2e;
+}
+
+
+main.container {
+    flex: 1;
+}
+
+h2 {
+    opacity: 0.6;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 1.5rem;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
 nav strong a {
     color: inherit;
     text-decoration: none;
+}
+
+nav strong a:hover {
+    color: var(--primary);
+}
+
+/* css movimientos */
+table {
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+thead th, tbody td {
+    text-align: center !important;
+    padding: 0.6rem 0.75rem !important;
+}
+thead th {
+    background-color: var(--primary);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 0.75rem;
+}
+
+table tbody tr:hover td {
+    background-color: rgba(247, 147, 26, 0.15) !important;
+}
+
+
+
+/*css status*/
+.status-resumen {
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.status-resumen hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 1rem 0;
+}
+
+.status-linea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.status-label {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.status-valor {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.destacado-text {
+    color: var(--primary);
+}
+
+.ganancia-text {
+    color: #2ecc71;
+    font-size: 1.4rem;
+}
+
+.perdida-text {
+    color: #e74c3c;
+    font-size: 1.4rem;
+}
+
+/* css purchases */
+form input, form select {
+    padding: 0.4rem 0.6rem !important;
+    height: auto !important;
+}
+
+.form-cantidad {
+    display: flex;
+    gap: 0.5rem;
+    align-items: end;
+}
+
+.form-cantidad input {
+    flex: 1;
+}
+
+.form-cantidad button {
+    width: auto;
+    padding: 0.4rem 1rem;
+    margin-bottom: 0;
+}
+
+button[value="calcular"] {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+button[value="calcular"]:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+button .material-icons {
+    vertical-align: middle;
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+/*Centrado del footer*/
+footer {
+    text-align: center;
+    opacity: 0.6;
+    font-size: 0.65rem;
+    padding: 1rem 0;
+}
+
+
+
+/* Mensaje de error */
+.error-msg {
+    background-color: rgba(231, 76, 60, 0.15);
+    border: 1px solid rgb(231, 76, 60);
+    color: rgb(231, 76, 60);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
