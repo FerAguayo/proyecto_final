@@ -41,14 +41,14 @@ def saldo_cripto(cripto):
 
 def total_invertido():
     connectInvertido = Conexion("SELECT SUM(cantidad_from) FROM movimientos WHERE moneda_from = 'EUR';")
-    invertido = connectInvertido.res.fetchall()
+    invertido = connectInvertido.res.fetchall()[0][0]
     connectInvertido.con.close()
     invertido = invertido or 0
     return invertido
 
 def total_recuperado():
     connectRecuperado = Conexion("SELECT SUM(cantidad_to) FROM movimientos WHERE moneda_to = 'EUR';")
-    recuperado = connectRecuperado.res.fetchall()
+    recuperado = connectRecuperado.res.fetchall()[0][0]
     connectRecuperado.con.close()
     recuperado = recuperado or 0
     return recuperado

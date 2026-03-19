@@ -8,20 +8,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header>
-        <h1>myCRYPTO</h1>
-        <nav>
-            <a href="/">Movimientos</a> 
-            <a href="/purchase">Compra/Venta</a> 
-            <a href="/status">Estado</a>
-        </nav>
-    </header>
+    <nav class="container">
+        <ul>
+            <li><strong><a href="/">myCRYPTO</a></strong></li>
+        </ul>
+        <ul>
+            <li>{% if pagina == "inicio" %}<strong>Movimientos</strong>{% else %}<a href="/">Movimientos</a>{% endif %}</li>
+            <li>{% if pagina == "compra" %}<strong>Compra</strong>{% else %}<a href="/purchase">Compra</a>{% endif %}</li>
+            <li>{% if pagina == "estado" %}<strong>Estado</strong>{% else %}<a href="/status">Estado</a>{% endif %}</li>
+        </ul>
+    </nav>
 
-    <main>
+    <main class="container">
         {% block contenido %}{% endblock %}
     </main>
 
-    <footer>
+    <footer class="container">
         <p>&copy; Fernando Aguayo | Keepcoding bootcamp cero 2026 - Todos los derechos reservados</p>
     </footer>
 </body>

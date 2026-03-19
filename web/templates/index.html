@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% set pagina = "inicio" %}
 
 {% block contenido %}
     <h2>MOVIMIENTOS</h2>
@@ -22,10 +23,10 @@
                     <td>{{ m.date }}</td>
                     <td>{{ m.time }}</td>
                     <td>{{ m.moneda_from }}</td>
-                    <td>{{ m.cantidad_from }}</td>
+                    <td>{{ "%.2f"|format(m.cantidad_from) }}</td>
                     <td>{{ m.moneda_to }}</td>
-                    <td>{{ m.cantidad_to }}</td>
-                    <td>{{ m.cantidad_from / m.cantidad_to }}</td>
+                    <td>{{ "%.8f"|format(m.cantidad_to) }}</td>
+                    <td>{{ "%.4f"|format(m.cantidad_from / m.cantidad_to) }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -43,3 +43,21 @@ def purchase():
     
 
     return render_template("purchase.html")
+
+@app.route("/status")
+def status():
+    invertido = total_invertido()
+    recuperado = total_recuperado()
+    valor_compra = invertido - recuperado
+
+    cartera = obtener_cripto()
+    valor_actual = 0
+    for cripto, cantidad in cartera.items():
+        valor_en_euros = convertir(cantidad, cripto, "EUR")
+        valor_actual += valor_en_euros
+
+    return render_template("status.html",
+        invertido=invertido,
+        recuperado=recuperado,
+        valor_compra=valor_compra,
+        valor_actual=valor_actual)
