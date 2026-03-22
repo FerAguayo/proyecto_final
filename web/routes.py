@@ -26,6 +26,8 @@ def purchase():
             
         if boton == "calcular":
             to_cantidad = convertir(from_cantidad, from_moneda, to_moneda)
+            if to_cantidad is None:
+                return render_template("purchase.html", error="Error al consultar la API de CoinMarketCap")
             precio_unitario = from_cantidad / to_cantidad
             return render_template("purchase.html",
                 from_moneda=from_moneda,

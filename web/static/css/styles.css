@@ -149,8 +149,19 @@ button .material-icons {
     font-size: 1.2rem;
     margin-right: 0.3rem;
 }
+button[value="calcular"] {
+    padding: 0.5rem 1.5rem !important;
+    width: auto !important;
+    float: right;
+}
 
-/*Centrado del footer*/
+button[value="aceptar"] {
+    padding: 0.5rem 2rem !important;
+    width: auto !important;
+    float: right;
+}
+
+/*footer bonito */
 footer {
     text-align: center;
     opacity: 0.6;
